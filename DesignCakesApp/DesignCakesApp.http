@@ -1,0 +1,30 @@
+@DesignCakesApp_HostAddress = http://localhost:5224
+
+GET {{DesignCakesApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{DesignCakesApp_HostAddress}}/customers/
+Accept: application/json
+
+###
+POST {{DesignCakesApp_HostAddress}}/customers/
+Accept: application/json
+
+###
+PUT {{DesignCakesApp_HostAddress}}/customers/
+Accept: application/json
+
+
+###
+GET {{DesignCakesApp_HostAddress}}/orders/
+Accept: application/json
+
+###
+POST {{DesignCakesApp_HostAddress}}/orders/
+Accept: application/json
+
+###
+PUT {{DesignCakesApp_HostAddress}}/orders/
+Accept: application/json
