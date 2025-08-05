@@ -29,6 +29,7 @@ namespace DesignCakesApp.Infrastructure.Persistence
         public DbSet<ProductSizes> ProductSizes { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Suppliers> Suppliers { get; set; }
 
         public void SeedData()
         {

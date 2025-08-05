@@ -17,5 +17,7 @@ namespace DesignCakesApp.Core.Entities
         public string? description { get; set; }
 
         public string? expensedetail  { get; set; }
+
+        public string? supplier { get; set; }
     }
 }

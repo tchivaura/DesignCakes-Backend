@@ -24,6 +24,7 @@ builder.Services.AddScoped<IRolesRepository, RolesRepository>();
 builder.Services.AddScoped<IProductSizeRepository, ProductSizeRepository>();
 builder.Services.AddScoped<ILabelsRepository, LabelsRepository>();
 builder.Services.AddScoped<ICustomerComplaintsRepository, CustomerComplaintRepository>();
+builder.Services.AddScoped<ISuppliersRepository, SuppliersRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>

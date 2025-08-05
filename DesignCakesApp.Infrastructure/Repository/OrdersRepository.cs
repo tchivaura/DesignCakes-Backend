@@ -31,6 +31,7 @@ namespace DesignCakesApp.Infrastructure.Repository
                 order.orderproduct = entity.orderproduct;
                 order.size= entity.size;
                 order.price= entity.price;
+                order.quantity= entity.quantity;
                 order.extrainstructions= entity.extrainstructions;
                 order.clerk=entity.clerk;
                 order.occasion=entity.occasion;

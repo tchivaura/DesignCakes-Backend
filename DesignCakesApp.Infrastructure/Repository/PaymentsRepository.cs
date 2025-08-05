@@ -35,6 +35,7 @@ namespace DesignCakesApp.Infrastructure.Repository
                 payment.amount = entity.amount;
                 payment.paymenttype = entity.paymenttype;
                 payment.clerk = entity.clerk;
+                payment.supplier = entity.supplier;
                 await dbContext.SaveChangesAsync();
 
                 return payment;
