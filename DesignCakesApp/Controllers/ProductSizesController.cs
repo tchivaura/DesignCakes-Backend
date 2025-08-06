@@ -10,9 +10,9 @@ namespace DesignCakesApp.Controllers
     [Route("[controller]")]
     public class ProductSizesController : ControllerBase
     {
-       private readonly IProductSizeRepository _productSizeRepository;
+        private readonly IProductSizeRepository _productSizeRepository;
 
-        public ProductSizesController (IProductSizeRepository productSizeRepository)
+        public ProductSizesController(IProductSizeRepository productSizeRepository)
         {
             _productSizeRepository = productSizeRepository;
         }
@@ -23,6 +23,15 @@ namespace DesignCakesApp.Controllers
         {
             var ProductSizes = await _productSizeRepository.GetAllSizes();
             return ProductSizes;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewProductSize([FromBody] ProductSizes productsize)
+        {
+            var created = await _productSizeRepository.AddNewProductSizeAsyn(productsize);
+            return CreatedAtAction(nameof(GetAll), new { id = created.id }, created);
+
+
         }
 
     }

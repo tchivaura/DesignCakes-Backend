@@ -10,5 +10,7 @@ namespace DesignCakesApp.Core.Interfaces
     public  interface IProductSizeRepository
     {
         Task<IEnumerable<ProductSizes>> GetAllSizes();
+
+        Task<ProductSizes> AddNewProductSizeAsyn(ProductSizes productsize);
     }
 }

@@ -16,5 +16,11 @@ namespace DesignCakesApp.Infrastructure.Repository
         {
             return await dbContext.ProductSizes.ToListAsync();
         }
+        public async Task<ProductSizes> AddNewProductSizeAsyn(ProductSizes productsize)
+        {
+            dbContext.ProductSizes.Add(productsize);
+            await dbContext.SaveChangesAsync();
+            return productsize;
+        }
     }
 }
