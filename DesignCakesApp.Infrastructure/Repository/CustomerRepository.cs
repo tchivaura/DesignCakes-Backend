@@ -34,6 +34,7 @@ namespace DesignCakesApp.Infrastructure.Repository
                 customer.addresss = entity.addresss;
                 customer.label = entity.label;
                 customer.dob = entity.dob;
+                customer.telephone = entity.telephone;
                 customer.@base = entity.@base;
                 await dbContext.SaveChangesAsync();
                

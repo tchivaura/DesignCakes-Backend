@@ -1,8 +1,6 @@
 ﻿using DesignCakesApp.Core.Entities;
 using DesignCakesApp.Core.Interfaces;
-using DesignCakesApp.Infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace DesignCakesApp.Controllers
 {
@@ -13,7 +11,6 @@ namespace DesignCakesApp.Controllers
         private readonly IPaymentsRepository _paymentsRepository;
 
         public PaymentsController(IPaymentsRepository paymentsRepository)
-
         {
             _paymentsRepository = paymentsRepository;
         }
@@ -31,7 +28,6 @@ namespace DesignCakesApp.Controllers
             var created = await _paymentsRepository.AddNewPaymentAsyn(payment);
             return created;
         }
-
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePayment(int id, [FromBody] Payments payment)
@@ -52,13 +48,13 @@ namespace DesignCakesApp.Controllers
 
             return NoContent();
         }
+
         [HttpGet("{id}")]
         public async Task<IEnumerable<Payments>> GetPaymentsByOrder(int id)
         {
             var payments = await _paymentsRepository.GetAllPaymentsByOrderId(id);
             return payments;
         }
-
 
         [HttpGet("bydescription/{description}")]
         public async Task<IEnumerable<Payments>> GetPaymentsByDescription(string description)
@@ -67,12 +63,12 @@ namespace DesignCakesApp.Controllers
             return payments;
         }
 
-        [HttpGet("date/{date}")]
-
-        public async Task<IEnumerable<Payments>> GetAllPerDate(string date)
+        // 🔹 NEW: Get total balance before a certain date and optional payment type
+        [HttpGet("balance")]
+        public async Task<ActionResult<double>> GetBalance([FromQuery] string startdate, [FromQuery] string paymenttype)
         {
-            return await _paymentsRepository.GetAllPaymentsByDate(date);
+            var total = await _paymentsRepository.GetBalance(startdate, paymenttype);
+            return Ok(total);
         }
-
     }
 }
